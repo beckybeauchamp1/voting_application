@@ -1,10 +1,18 @@
 var mongoose = require('../db/connection.js');
 var Models = require('../db/schema.js');
-
+// grabbing module.exports from schema.js
 var VotingOption =  Models.VotingOptionModel;
 var VotingSession =  Models.VotingSessionModel;
 var Vote =  Models.VoteModel;
 var User =  Models.UserModel;
+
+
+VotingOption.remove({}, function(err){
+  console.log(err)
+});
+VotingSession.remove({}, function(err){
+  console.log(err)
+});
 
 var option1 = new VotingOption({
   voteTitle: "Should we go out tonight?"
@@ -51,7 +59,6 @@ votingSession1.save(function(err, results){
     " was saved");
   }
 });
-
 
 optionsArray2.forEach(function(option){
   votingSession2.votingOptions.push(option);

@@ -1,5 +1,6 @@
 var mongoose = require('../db/connection.js');
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema,
+  ObjectId = Schema.ObjectId;
 
 var VotingOptionSchema = new Schema()
 var VotingSessionSchema = new Schema()
