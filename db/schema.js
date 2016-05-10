@@ -1,6 +1,6 @@
 var mongoose = require('../db/connection.js');
 var Schema = mongoose.Schema,
-  ObjectId = Schema.ObjectId;
+ObjectId = Schema.ObjectId;
 
 var VotingOptionSchema = new Schema()
 var VotingSessionSchema = new Schema()
@@ -35,6 +35,15 @@ VotingSessionSchema.add({
   },
   startTime:{
     type: Date
+  },
+  password: {
+    type: String,
+    validate: [
+      function(password) {
+        return password.length >= 5;
+      },
+      'Password should be longer'
+    ]
   },
   votingOptions: [VotingOptionSchema],
   votes: [{

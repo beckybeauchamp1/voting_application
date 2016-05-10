@@ -4,6 +4,7 @@ var router = express.Router();
 var votingSessionController = require('../controllers/votingSessionsController');
 
 // Voting Sessions and Embedded Voting Options Routes
+router.get('/signin', votingSessionController.findVotingSession)
 router.get('/voting', votingSessionController.allVotingSessions)
 router.get('/voting/:id',votingSessionController.showVotingSession)
 router.delete('/voting/:id',votingSessionController.deleteVotingSession)

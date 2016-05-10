@@ -35,12 +35,14 @@ var option6 = new VotingOption({
 
 var votingSession1 = new VotingSession({
   title: "Friday Night Vote Sess",
-  description: "Deciding what we should do tonight"
+  description: "Deciding what we should do tonight",
+  password: "cmb8214rb"
 });
 
 var votingSession2 = new VotingSession({
   title: "Programming Languages",
-  description: "What should we learn?"
+  description: "What should we learn?",
+  password: "cmb8214rb"
 });
 
 var optionsArray1 = [option1, option2];
@@ -56,20 +58,20 @@ votingSession1.save(function(err, results){
   }
   else{
     console.log(results +
-    " was saved");
-  }
-});
+      " was saved");
+    }
+  });
 
-optionsArray2.forEach(function(option){
-  votingSession2.votingOptions.push(option);
-});
+  optionsArray2.forEach(function(option){
+    votingSession2.votingOptions.push(option);
+  });
 
-votingSession2.save(function(err, results){
-  if(err){
-    throw err;
-  }
-  else{
-    console.log(results +
-    " was saved");
-  }
-});
+  votingSession2.save(function(err, results){
+    if(err){
+      throw err;
+    }
+    else{
+      console.log(results +
+        " was saved");
+      }
+    });
